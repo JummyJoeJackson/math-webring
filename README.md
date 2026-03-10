@@ -55,13 +55,13 @@ Since every website is unique, we suggest you add your own flair to the lion. We
 // Replace 'image-name.svg' with the image URL
 ```
 
-Generally, use `icon.pink.svg` as it works in both dark and light-themed websites. Feel free to host the icon locally if you encounter HTTPS issues / styling issues.
+Generally, use `math-webring-pink.svg` as it works in both dark and light-themed websites. Feel free to host the icon locally if you encounter HTTPS issues / styling issues.
 
 ## Alternative Icons Sources
 
-- Black: `https://math-webring.vercel.app/icon.black.svg`
-- White: `https://math-webring.vercel.app/icon.white.svg`
-- Pink: `https://math-webring.vercel.app/icon.pink.svg`
+- Black: `https://math-webring.vercel.app/math-webring-black.svg`
+- White: `https://math-webring.vercel.app/math-webring-white.svg`
+- Pink: `https://math-webring.vercel.app/math-webring-pink.svg`
 
 If none of these quite work for you, feel free to make your own. If you're using React, start with [MathWebringIcon.tsx](./MathWebringIcon.tsx).
 
