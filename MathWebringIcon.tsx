@@ -15,17 +15,10 @@ export default function WebringIcon({
     >
       <title>UW Math Webring</title>
 
-      {/* Top horizontal bar */}
       <rect x="60" y="60" width="380" height="52" rx="10" ry="10" />
-
-      {/* Left leg — straight, with bottom serif */}
       <rect x="148" y="112" width="48" height="260" rx="8" ry="8" />
-      {/* Left leg bottom serif */}
       <rect x="114" y="352" width="116" height="36" rx="8" ry="8" />
-
-      {/* Right leg — tapers and curls outward at the bottom */}
-      <path d="
-        M 304,112
+      <path d="M 304,112
         C 304,112 316,112 328,112
         C 340,112 352,120 352,132
         L 352,300
