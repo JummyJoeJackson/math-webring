@@ -63,7 +63,7 @@ Generally, use `icon.pink.svg` as it works in both dark and light-themed website
 - White: `https://math-webring.vercel.app/icon.white.svg`
 - Pink: `https://math-webring.vercel.app/icon.pink.svg`
 
-If none of these quite work for you, feel free to make your own. If you're using React, start with [icon.custom.tsx](./icon.custom.tsx).
+If none of these quite work for you, feel free to make your own. If you're using React, start with [MathWebringIcon.tsx](./MathWebringIcon.tsx).
 
 ## Q&A
 
