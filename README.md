@@ -1,7 +1,7 @@
 # Math Webring
 A webring for Mathematics students and alumni at the University of Waterloo in Ontario, Canada.
 
-<img width="999" height="666" alt="image" src="banner.png" />
+<img width="999" height="666" alt="image" src="buildingmobius.png" />
 
 ## Whats a Webring
 A webring is a group of websites linked together in a circular manner, centered around a common theme. They were big in the early internet and later got replaced by blogs and social medias. The idea behind the Math Webring is to have a central place list all websites of current and prior Math students and make them more discoverable/increase traffic.
