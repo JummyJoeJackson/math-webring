@@ -1,0 +1,33 @@
+import type { Member } from '../data'
+import MemberCard from './MemberCard'
+
+interface Props {
+  members: Member[]
+}
+
+export default function MemberList({ members }: Props) {
+  if (members.length === 0) {
+    return (
+      <p className="empty">
+        No members yet —{' '}
+        <a
+          href="https://github.com/ryanli/math-webring#joining-the-webring"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          be the first to join!
+        </a>
+      </p>
+    )
+  }
+
+  return (
+    <ul className="member-list">
+      {members.map((member) => (
+        <li key={member.website}>
+          <MemberCard member={member} />
+        </li>
+      ))}
+    </ul>
+  )
+}
