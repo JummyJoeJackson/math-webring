@@ -1,0 +1,15 @@
+export interface Member {
+  name: string
+  website: string
+  /** Graduation year or expected graduation year */
+  year: string
+}
+
+export const members: Member[] = [
+  // Add members here — keep sorted by join order (append to bottom)
+  // {
+  //   name: "Your Name",
+  //   website: "https://your-website.com",
+  //   year: "20XX",
+  // },
+]
