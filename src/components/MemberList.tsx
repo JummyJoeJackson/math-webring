@@ -11,7 +11,7 @@ export default function MemberList({ members }: Props) {
       <p className="empty">
         No members yet —{' '}
         <a
-          href="https://github.com/ryanli/math-webring#joining-the-webring"
+          href="https://github.com/JummyJoeJackson/math-webring#joining-the-webring"
           target="_blank"
           rel="noopener noreferrer"
         >
