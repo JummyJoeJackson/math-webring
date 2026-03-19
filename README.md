@@ -31,15 +31,19 @@ Since every website is unique, we suggest you add your own style to the pi. Howe
 
 ```html
 <div style="display: flex; align-items: center; gap: 8px;">
-  <a href="https://math-webring.vercel.app/#https://your-site-url.com?nav=prev">←</a>
+  <a href="https://math-webring.vercel.app/#https://your-site-url.com?nav=prev">
+    ←
+  </a>
   <a href="https://math-webring.vercel.app/" target="_blank">
     <img
       src="https://math-webring.vercel.app/math-webring-pink.svg"
       alt="Math Webring"
-      style="width: 24px; height: auto; opacity: 0.8;"
+      style="width: 24px; height: auto;"
     />
   </a>
-  <a href="https://math-webring.vercel.app/#https://your-site-url.com?nav=next">→</a>
+  <a href="https://math-webring.vercel.app/#https://your-site-url.com?nav=next">
+    →
+  </a>
 </div>
 <!-- Replace 'https://your-site-url.com' with your actual website URL -->
 ```
@@ -48,15 +52,19 @@ Since every website is unique, we suggest you add your own style to the pi. Howe
 
 ```jsx
 <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-  <a href="https://math-webring.vercel.app/#https://your-site-url.com?nav=prev">←</a>
+  <a href="https://math-webring.vercel.app/#https://your-site-url.com?nav=prev">
+    ←
+  </a>
   <a href="https://math-webring.vercel.app/" target="_blank">
     <img
       src="https://math-webring.vercel.app/math-webring-pink.svg"
       alt="Math Webring"
-      style={{ width: "24px", height: "auto", opacity: 0.8 }}
+      style={{ width: "24px", height: "auto" }}
     />
   </a>
-  <a href="https://math-webring.vercel.app/#https://your-site-url.com?nav=next">→</a>
+  <a href="https://math-webring.vercel.app/#https://your-site-url.com?nav=next">
+    →
+  </a>
 </div>
 // Replace 'https://your-site-url.com' with your actual website URL
 ```
