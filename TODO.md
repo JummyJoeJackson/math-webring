@@ -1,0 +1,2 @@
+- Image not loading on vercel deployment
+- Arrows not redirecting to next website in ring
