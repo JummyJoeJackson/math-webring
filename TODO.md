@@ -1,1 +1,2 @@
 - Add more members
+- Fix Compatability on Mobile
