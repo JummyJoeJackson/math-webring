@@ -11,12 +11,12 @@ A webring is a group of websites linked together in a circular manner, centered 
 ## Joining the Webring
 
 1. Add the webring widget to your website HTML ([template below](#widget-template)). Generally, you should add it to the footer.
-2. Fork this repo and add your information to the **BOTTOM** of `webringData[]` in `index.html` following this format:
-   ```json
+2. Fork this repo and add your information to the **BOTTOM** of `members[]` in `data.ts` following this format:
+   ```typescript
    {
-     "name": "Your Name",
-     "website": "https://your-website.com",
-     "year": "20XX"
+     name: "Your Name",
+     website: "https://your-website.com",
+     year: "20XX"
    }
    ```
 3. Submit a Pull Request! We'll try to review as fast as we can.

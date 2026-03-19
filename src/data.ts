@@ -22,4 +22,14 @@ export const members: Member[] = [
     website: "https://ryan-li.ca",
     year: "2030",
   },
+  {
+    name: "Siddharth Tiwari",
+    website: "https://siddharthtiwari.com",
+    year: "2030",
+  },
+  {
+    name: "Joshua Jennings",
+    website: "https://joshuajennings.ca",
+    year: "2030",
+  },
 ]
