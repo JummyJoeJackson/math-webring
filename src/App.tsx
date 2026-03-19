@@ -38,7 +38,7 @@ export default function App() {
 
       <footer className="footer">
         <a
-          href="https://github.com/ryanli/math-webring"
+          href="https://github.com/JummyJoeJackson/math-webring"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -46,7 +46,7 @@ export default function App() {
         </a>
         <span>·</span>
         <a
-          href="https://github.com/ryanli/math-webring#joining-the-webring"
+          href="https://github.com/JummyJoeJackson/math-webring#joining-the-webring"
           target="_blank"
           rel="noopener noreferrer"
         >
