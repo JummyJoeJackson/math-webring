@@ -12,4 +12,14 @@ export const members: Member[] = [
   //   website: "https://your-website.com",
   //   year: "20XX",
   // },
+  {
+    name: "Diego Gonzalez",
+    website: "https://diegogonzalez.tech",
+    year: "2030",
+  },
+  {
+    name: "Ryan Li",
+    website: "https://ryan-li.ca",
+    year: "2030",
+  },
 ]
