@@ -25,7 +25,7 @@ A webring is a group of websites linked together in a circular manner, centered 
 
 <img width="250" height="167" alt="math-webring-example" src="https://github.com/user-attachments/assets/a6a2a0f7-6d5b-4046-ba46-44b4855fa582" />
 
-Since every website is unique, we suggest you add your own style to the pi. However, if you can't make one off the dome, here are some examples to get you started:
+Since every website is unique, we suggest you add your own style to the pi. However, if you can't think of one off the dome, here are some examples to get you started:
 
 #### HTML:
 
