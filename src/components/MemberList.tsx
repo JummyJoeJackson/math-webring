@@ -25,7 +25,12 @@ export default function MemberList({ members, highlightedSite }: Props) {
   return (
     <ul className="member-list">
       {members.map((member) => {
-        const isHighlighted = member.website.replace(/\/$/, '') === highlightedSite;
+        const hostname = new URL(member.website).hostname;
+        const normalizedHighlight = highlightedSite?.replace(/^https?:\/\//, '').replace(/\/$/, '');
+        const isHighlighted = 
+          member.website.replace(/\/$/, '') === highlightedSite || 
+          hostname === normalizedHighlight;
+          
         return (
           <li key={member.website}>
             <MemberCard member={member} isHighlighted={isHighlighted} />
