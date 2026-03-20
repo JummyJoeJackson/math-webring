@@ -1,2 +1,2 @@
 - Add more members
-- Fix Compatability on Mobile
+- Add highlighting of member when redirected from their website
