@@ -3,9 +3,10 @@ import MemberCard from './MemberCard'
 
 interface Props {
   members: Member[]
+  highlightedSite?: string | null
 }
 
-export default function MemberList({ members }: Props) {
+export default function MemberList({ members, highlightedSite }: Props) {
   if (members.length === 0) {
     return (
       <p className="empty">
@@ -23,11 +24,14 @@ export default function MemberList({ members }: Props) {
 
   return (
     <ul className="member-list">
-      {members.map((member) => (
-        <li key={member.website}>
-          <MemberCard member={member} />
-        </li>
-      ))}
+      {members.map((member) => {
+        const isHighlighted = member.website.replace(/\/$/, '') === highlightedSite;
+        return (
+          <li key={member.website}>
+            <MemberCard member={member} isHighlighted={isHighlighted} />
+          </li>
+        )
+      })}
     </ul>
   )
 }

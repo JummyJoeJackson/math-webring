@@ -1,2 +1,2 @@
 - Add more members
-- Add highlighting of member when redirected from their website
+- [x] Add highlighting of member when redirected from their website

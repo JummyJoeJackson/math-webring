@@ -2,14 +2,15 @@ import type { Member } from '../data'
 
 interface Props {
   member: Member
+  isHighlighted?: boolean
 }
 
-export default function MemberCard({ member }: Props) {
+export default function MemberCard({ member, isHighlighted }: Props) {
   const hostname = new URL(member.website).hostname
 
   return (
     <a
-      className="member-card"
+      className={`member-card ${isHighlighted ? 'highlighted' : ''}`.trim()}
       href={member.website}
       target="_blank"
       rel="noopener noreferrer"

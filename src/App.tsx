@@ -5,10 +5,17 @@ import MemberList from './components/MemberList'
 
 export default function App() {
   const [redirecting, setRedirecting] = useState(false)
+  const [highlightedSite, setHighlightedSite] = useState<string | null>(null)
 
   useEffect(() => {
     if (handleNavRedirect()) {
       setRedirecting(true)
+    } else {
+      const raw = window.location.hash.slice(1)
+      if (raw) {
+        const [siteRaw] = raw.split('?')
+        setHighlightedSite(decodeURIComponent(siteRaw).replace(/\/$/, ''))
+      }
     }
   }, [])
 
@@ -33,7 +40,7 @@ export default function App() {
       </header>
 
       <main>
-        <MemberList members={members} />
+        <MemberList members={members} highlightedSite={highlightedSite} />
       </main>
 
       <footer className="footer">

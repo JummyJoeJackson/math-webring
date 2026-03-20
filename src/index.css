@@ -95,10 +95,15 @@ a:hover {
   transition: border-color 0.15s, background 0.15s;
 }
 
-.member-card:hover {
+.member-card:hover,
+.member-card.highlighted {
   border-color: var(--pink);
   background: #1f1f1f;
   text-decoration: none;
+}
+
+.member-card.highlighted {
+  box-shadow: 0 0 12px rgba(232, 80, 138, 0.4);
 }
 
 .member-name {
