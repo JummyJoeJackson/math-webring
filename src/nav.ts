@@ -21,9 +21,13 @@ export function handleNavRedirect(): boolean {
 
   if (!nav) return false // visiting the member's page directly, no redirect
 
-  const idx = members.findIndex(
-    (m) => m.website.replace(/\/$/, '') === site,
-  )
+  const idx = members.findIndex((m) => {
+    const memberSite = m.website.replace(/\/$/, '')
+    const memberHost = new URL(m.website).hostname
+    const normalizedInput = site.replace(/^https?:\/\//, '')
+    
+    return memberSite === site || memberHost === normalizedInput
+  })
 
   if (idx === -1) return false // unknown site, fall through to 404 state
 
