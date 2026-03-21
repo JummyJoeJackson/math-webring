@@ -39,12 +39,30 @@ a:hover {
 /* Layout */
 
 .app {
-  max-width: 720px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 3rem 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 3rem;
+}
+
+/* Side-by-side: list left, animation right */
+
+.content {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.content-list {
+  flex: 0 0 260px;
+}
+
+.content-pi {
+  flex: 1;
+  display: flex;
+  justify-content: center;
 }
 
 /* Header */

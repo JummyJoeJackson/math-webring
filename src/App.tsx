@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { members } from './data'
 import { handleNavRedirect } from './nav'
 import MemberList from './components/MemberList'
+import SpinningPi from './components/SpinningPi'
 
 export default function App() {
   const [redirecting, setRedirecting] = useState(false)
@@ -39,9 +40,14 @@ export default function App() {
         </div>
       </header>
 
-      <main>
-        <MemberList members={members} highlightedSite={highlightedSite} />
-      </main>
+      <div className="content">
+        <main className="content-list">
+          <MemberList members={members} highlightedSite={highlightedSite} />
+        </main>
+        <div className="content-pi">
+          <SpinningPi />
+        </div>
+      </div>
 
       <footer className="footer">
         <a
