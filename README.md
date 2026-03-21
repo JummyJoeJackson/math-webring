@@ -19,7 +19,7 @@ A webring is a group of websites linked together in a circular manner, centered 
      year: "20XX"
    }
    ```
-3. Submit a Pull Request! We'll try to review as fast as we can.
+3. Submit a Pull Request! We'll try to review as fast as we can :D
 
 ## Widget template
 
