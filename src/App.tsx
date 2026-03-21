@@ -65,6 +65,8 @@ export default function App() {
         >
           Join
         </a>
+        <span>·</span>
+        <p>&copy; 2026 Diego Gonzalez</p>
       </footer>
     </div>
   )
