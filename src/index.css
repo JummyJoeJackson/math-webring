@@ -191,3 +191,88 @@ a:hover {
   height: 100dvh;
   color: var(--muted);
 }
+/* Mobile and tablet layout (< 1000px) */
+
+@media (max-width: 1000px) {
+  .app {
+    height: auto;
+    overflow-y: visible;
+    padding: 2rem 1rem;
+    max-width: 100%;
+  }
+
+  .content {
+    flex-direction: column;
+    gap: 3rem;
+    height: auto;
+    min-height: auto;
+    align-items: center;
+  }
+
+  .content-left {
+    width: 100%;
+    margin-top: 0;
+    max-height: none;
+    flex: none;
+    min-width: 0;
+  }
+
+  .content-list {
+    overflow-y: visible;
+    width: 100%;
+  }
+
+  .content-pi {
+    width: 100%;
+    padding: 2rem 0;
+    justify-content: center;
+  }
+
+  .content-pi pre {
+    font-size: min(13px, 3.2vw) !important;
+    line-height: 1.1 !important;
+  }
+
+  /* Extra thin devices (< 600px) scaling for the Pi */
+  @media (max-width: 600px) {
+    .content-pi pre {
+      font-size: 8px !important;
+    }
+  }
+
+  @media (max-width: 400px) {
+    .content-pi pre {
+      font-size: 7px !important;
+    }
+
+    /* Shrink member card text for thin screens */
+    .member-name {
+      font-size: 0.75rem;
+    }
+    .member-site, .member-year {
+      font-size: 0.65rem;
+    }
+    .member-card {
+      gap: 0.4rem;
+      padding: 0.4rem 0.6rem;
+    }
+  }
+
+  .header {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .logo {
+    width: 64px;
+    margin: 0 auto;
+  }
+
+  .footer {
+    padding: 2rem 0;
+    flex-wrap: wrap;
+    line-height: 2;
+  }
+}
