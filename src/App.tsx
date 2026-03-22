@@ -30,20 +30,21 @@ export default function App() {
 
   return (
     <div className="app">
-      <header className="header">
-        <img src="/math-webring-pink.svg" alt="Math Webring logo" className="logo" />
-        <div>
-          <h1>Math Webring</h1>
-          <p className="tagline">
-            A webring for Mathematics students &amp; alumni at the University of Waterloo
-          </p>
-        </div>
-      </header>
-
       <div className="content">
-        <main className="content-list">
-          <MemberList members={members} highlightedSite={highlightedSite} />
-        </main>
+        <div className="content-left">
+          <header className="header">
+            <img src="/math-webring-pink.svg" alt="Math Webring logo" className="logo" />
+            <div>
+              <h1>Math Webring</h1>
+              <p className="tagline">
+                A webring for Mathematics students &amp; alumni at the University of Waterloo
+              </p>
+            </div>
+          </header>
+          <main className="content-list">
+            <MemberList members={members} highlightedSite={highlightedSite} />
+          </main>
+        </div>
         <div className="content-pi">
           <SpinningPi />
         </div>
