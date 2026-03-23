@@ -48,7 +48,6 @@ export default function MobiusStrip({ members, highlightedSite }: Props) {
   const angleRef = useRef(0);
   const nodeScreenPos = useRef<{ x: number; y: number; z: number }[]>([]);
   const hoveredRef = useRef<number | null>(null);
-  const pausedRef = useRef(false);
   const highlightRef = useRef(highlightedSite);
   const faviconImgs = useRef<Map<number, HTMLImageElement | null>>(new Map());
   highlightRef.current = highlightedSite;
@@ -79,7 +78,7 @@ export default function MobiusStrip({ members, highlightedSite }: Props) {
 
     function draw() {
       frameRef.current = requestAnimationFrame(draw);
-      if (!pausedRef.current) angleRef.current += SPEED;
+      angleRef.current += SPEED;
       const ry = angleRef.current;
 
       ctx.clearRect(0, 0, W, H);
@@ -212,8 +211,7 @@ export default function MobiusStrip({ members, highlightedSite }: Props) {
         height={H}
         style={{ display: 'block', maxWidth: '100%', cursor: hovered !== null ? 'pointer' : 'default' }}
         onMouseMove={handleMouseMove}
-        onMouseEnter={() => { pausedRef.current = true; }}
-        onMouseLeave={() => { pausedRef.current = false; hoveredRef.current = null; setHovered(null); setTooltip(null); }}
+        onMouseLeave={() => { hoveredRef.current = null; setHovered(null); setTooltip(null); }}
         onClick={() => hovered !== null && window.open(members[hovered].website, '_blank')}
       />
       {hoveredMember && tooltip && (
