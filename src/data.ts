@@ -23,13 +23,13 @@ export const members: Member[] = [
     year: "2030",
   },
   {
-    name: "Joshua Jennings",
-    website: "https://joshuajennings.ca",
+    name: "Siddharth Tiwari",
+    website: "https://siddharthtiwari.com",
     year: "2030",
   },
   {
-    name: "Siddharth Tiwari",
-    website: "https://siddharthtiwari.com",
+    name: "Joshua Jennings",
+    website: "https://joshuajennings.ca",
     year: "2030",
   },
 ]
