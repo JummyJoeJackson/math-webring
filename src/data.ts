@@ -13,11 +13,6 @@ export const members: Member[] = [
   //   year: "20XX",
   // },
   {
-    name: "Siddharth Tiwari",
-    website: "https://siddharthtiwari.com",
-    year: "2030",
-  },
-  {
     name: "Diego Gonzalez",
     website: "https://diegogonzalez.tech",
     year: "2030",
@@ -30,6 +25,11 @@ export const members: Member[] = [
   {
     name: "Joshua Jennings",
     website: "https://joshuajennings.ca",
+    year: "2030",
+  },
+  {
+    name: "Siddharth Tiwari",
+    website: "https://siddharthtiwari.com",
     year: "2030",
   },
 ]
