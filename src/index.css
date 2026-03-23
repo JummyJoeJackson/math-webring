@@ -206,6 +206,15 @@ a:hover {
   opacity: 0.85;
 }
 
+@media (max-width: 1000px) {
+  .uw-logo-wrap {
+    position: absolute;
+  }
+  .uw-logo {
+    height: 60px;
+  }
+}
+
 /* Mobile and tablet layout (< 1000px) */
 
 @media (max-width: 1000px) {
