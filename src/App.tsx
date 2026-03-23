@@ -67,7 +67,7 @@ export default function App() {
           Join
         </a>
         <span>·</span>
-        <p>&copy; 2026 Diego Gonzalez et al.</p>
+        <p>&copy; 2026 Math Roomies :) et al.</p>
       </footer>
     </div>
   )
