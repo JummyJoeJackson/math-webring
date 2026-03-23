@@ -6,17 +6,18 @@ interface Props {
   highlightedSite?: string | null;
 }
 
-const W = 500;
-const H = 390;
-const CX = W / 2;
+const W = 720;
+const H = 460;
+const CX = W / 2 + 80;
 const CY = H / 2;
-const R = 115;       // strip radius
-const SW = 52;       // strip half-width
-const FOV = 380;     // perspective
-const TILT = 0.42;   // static X tilt
-const U_SEGS = 90;   // smoothness around loop
-const V_SEGS = 10;   // divisions across width
-const SPEED = 0.007; // rotation speed
+const R = 150;       // strip radius (larger)
+const SW = 65;       // strip half-width (larger)
+const FOV = 420;
+const TILT = 0.42;
+const U_SEGS = 90;
+const V_SEGS = 10;
+const SPEED = 0.007;
+const ICON_R = 11;   // favicon circle radius
 
 function mobiusPoint(u: number, v: number): [number, number, number] {
   return [
@@ -49,10 +50,27 @@ export default function MobiusStrip({ members, highlightedSite }: Props) {
   const hoveredRef = useRef<number | null>(null);
   const pausedRef = useRef(false);
   const highlightRef = useRef(highlightedSite);
+  const faviconImgs = useRef<Map<number, HTMLImageElement | null>>(new Map());
   highlightRef.current = highlightedSite;
 
   const [hovered, setHovered] = useState<number | null>(null);
   const [tooltip, setTooltip] = useState<{ x: number; y: number } | null>(null);
+
+  // Preload favicons
+  useEffect(() => {
+    members.forEach((member, idx) => {
+      const hostname = new URL(member.website).hostname;
+      const img = new Image();
+      img.onload = () => faviconImgs.current.set(idx, img);
+      img.onerror = () => {
+        const img2 = new Image();
+        img2.onload = () => faviconImgs.current.set(idx, img2);
+        img2.onerror = () => faviconImgs.current.set(idx, null);
+        img2.src = `https://${hostname}/favicon.svg`;
+      };
+      img.src = `https://icons.duckduckgo.com/ip3/${hostname}.ico`;
+    });
+  }, [members]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -66,7 +84,7 @@ export default function MobiusStrip({ members, highlightedSite }: Props) {
 
       ctx.clearRect(0, 0, W, H);
 
-      // --- Build strip faces ---
+      // Strip faces
       type Face = { pts: [number, number][]; avgZ: number };
       const faces: Face[] = [];
 
@@ -102,7 +120,7 @@ export default function MobiusStrip({ members, highlightedSite }: Props) {
         ctx.stroke();
       }
 
-      // --- Draw member nodes on center line (v=0) ---
+      // Member nodes
       const n = members.length;
       const nodeData = members.map((member, idx) => {
         const u = (idx / Math.max(n, 1)) * 2 * Math.PI;
@@ -119,28 +137,44 @@ export default function MobiusStrip({ members, highlightedSite }: Props) {
         newPos[idx] = { x: px, y: py, z: rz };
 
         const d = (rz + R + SW) / (2 * (R + SW));
-        const alpha = 0.3 + d * 0.7;
-        const nodeR = 3.5 + d * 3;
-
+        const alpha = 0.35 + d * 0.65;
         const hostname = new URL(member.website).hostname;
         const norm = highlightRef.current?.replace(/^https?:\/\//, '').replace(/\/$/, '');
         const isHighlighted = hostname === norm;
-        const isHovered = hoveredRef.current === idx;
-        const isActive = isHovered || isHighlighted;
+        const isActive = hoveredRef.current === idx || isHighlighted;
+        const img = faviconImgs.current.get(idx);
+        const imgReady = img && img.complete && img.naturalWidth > 0;
 
+        // Glow
         if (isActive) {
           ctx.beginPath();
-          ctx.arc(px, py, nodeR + 9, 0, Math.PI * 2);
-          ctx.fillStyle = 'rgba(232,80,138,0.12)';
+          ctx.arc(px, py, ICON_R + 8, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(232,80,138,0.15)';
           ctx.fill();
         }
 
+        if (imgReady) {
+          // Circular clipped favicon
+          ctx.save();
+          ctx.globalAlpha = alpha;
+          ctx.beginPath();
+          ctx.arc(px, py, ICON_R, 0, Math.PI * 2);
+          ctx.clip();
+          ctx.drawImage(img!, px - ICON_R, py - ICON_R, ICON_R * 2, ICON_R * 2);
+          ctx.restore();
+        } else {
+          // Fallback filled circle
+          ctx.beginPath();
+          ctx.arc(px, py, ICON_R, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(232,80,138,${alpha.toFixed(2)})`;
+          ctx.fill();
+        }
+
+        // Border ring
         ctx.beginPath();
-        ctx.arc(px, py, isActive ? nodeR + 2.5 : nodeR, 0, Math.PI * 2);
-        ctx.fillStyle = isActive ? '#e8508a' : `rgba(232,80,138,${alpha.toFixed(2)})`;
-        ctx.fill();
-        ctx.strokeStyle = `rgba(255,255,255,${(alpha * 0.55).toFixed(2)})`;
-        ctx.lineWidth = 1;
+        ctx.arc(px, py, ICON_R, 0, Math.PI * 2);
+        ctx.strokeStyle = isActive ? '#ffffff' : `rgba(255,255,255,${(alpha * 0.7).toFixed(2)})`;
+        ctx.lineWidth = isActive ? 2 : 1;
         ctx.stroke();
       }
 
@@ -157,7 +191,7 @@ export default function MobiusStrip({ members, highlightedSite }: Props) {
     const my = (e.clientY - rect.top) * (H / rect.height);
 
     let closest = -1;
-    let closestDist = 28;
+    let closestDist = ICON_R + 12;
     nodeScreenPos.current.forEach((pos, i) => {
       const d = Math.hypot(pos.x - mx, pos.y - my);
       if (d < closestDist) { closestDist = d; closest = i; }
