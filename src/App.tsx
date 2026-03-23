@@ -30,12 +30,19 @@ export default function App() {
 
   return (
     <div className="app">
+      <div className="uw-logo-wrap">
+        <img
+          src="/uw-logo.avif"
+          alt="University of Waterloo"
+          className="uw-logo"
+        />
+      </div>
       <div className="content">
         <div className="content-left">
           <header className="header">
             <img src="/math-webring-pink.svg" alt="Math Webring logo" className="logo" />
             <div>
-              <h1>Math Webring</h1>
+              <h1>UW Math Webring</h1>
               <p className="tagline">
                 A webring for Mathematics students &amp; alumni at the University of Waterloo
               </p>

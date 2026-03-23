@@ -191,6 +191,21 @@ a:hover {
   height: 100dvh;
   color: var(--muted);
 }
+/* UW logo */
+
+.uw-logo-wrap {
+  position: fixed;
+  top: 1.2rem;
+  left: 1.5rem;
+  z-index: 10;
+}
+
+.uw-logo {
+  height: 120px;
+  width: auto;
+  opacity: 0.85;
+}
+
 /* Mobile and tablet layout (< 1000px) */
 
 @media (max-width: 1000px) {
