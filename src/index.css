@@ -250,6 +250,7 @@ a:hover {
     width: 100%;
     padding: 2rem 0;
     justify-content: center;
+    margin-top: 2rem;
   }
 
   .content-pi canvas {
