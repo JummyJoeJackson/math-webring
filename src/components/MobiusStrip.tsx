@@ -42,6 +42,12 @@ function project(x: number, y: number, z: number): [number, number] {
   return [CX + x * s, CY + y * s];
 }
 
+// Cycles through 4 staggered v levels so adjacent members (closest in u) are always well separated
+function staggeredV(idx: number): number {
+  const levels = [-0.65, 0.65, -0.25, 0.25];
+  return levels[idx % levels.length];
+}
+
 export default function MobiusStrip({ members, highlightedSite }: Props) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const frameRef = useRef(0);
@@ -123,7 +129,7 @@ export default function MobiusStrip({ members, highlightedSite }: Props) {
       const n = members.length;
       const nodeData = members.map((member, idx) => {
         const u = (idx / Math.max(n, 1)) * 2 * Math.PI;
-        const [mx, my, mz] = mobiusPoint(u, 0);
+        const [mx, my, mz] = mobiusPoint(u, staggeredV(idx));
         const [rx, ry2, rz] = rotateXZ(mx, my, mz, TILT, ry);
         const [px, py] = project(rx, ry2, rz);
         return { member, idx, px, py, rz };
