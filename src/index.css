@@ -252,6 +252,10 @@ a:hover {
     justify-content: center;
   }
 
+  .content-pi canvas {
+    transform: translateX(-11%);
+  }
+
   .content-pi pre {
     font-size: min(13px, 3.2vw) !important;
     line-height: 1.1 !important;
