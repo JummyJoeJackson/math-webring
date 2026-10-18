@@ -32,4 +32,9 @@ export const members: Member[] = [
     website: "https://joshuajennings.ca",
     year: "2030",
   },
+  {
+    name: "Jacob Zheng",
+    website: "https://jacobzheng-roan.vercel.app",
+    year: "2030",
+  },
 ]
